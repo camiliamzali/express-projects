@@ -1,0 +1,13 @@
+body, html {
+  min-height: 100%;
+  margin-top: 50px; }
+
+.tabbed-box {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  display: grid;
+  grid-template-columns: 100px 100px 100px 1fr;
+  background-color: #E6E0F0; }
+
+/*# sourceMappingURL=twitch.css.map */
