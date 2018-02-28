@@ -1,15 +1,51 @@
 $background: #E6E0F0;
+$primary: #50377F;
+$secondary: #C2B6D9;
+
 
 body, html {
   min-height: 100%;
   margin-top: 50px;
+  background-color: $background;
 }
 
 .tabbed-box {
   border-radius: 15px;
   display: flex;
   flex-direction: row;
-  display: grid;
-  grid-template-columns: 100px 100px 100px 1fr;
-  background-color: $background;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-around;
+  max-width: 75%;
+  margin: 0 auto;
+  background-color: $primary;
+
+  .all-tab {
+    border-right: 1px solid #fff;
+    width: 33%;
+  }
+
+  .online-tab {
+    border-right: 1px solid #fff;
+    width: 33%
+  }
+
+  .offline-tab {
+    width: 33%;
+  }
+
+  button {
+    background-color: $primary;
+    border-color: $primary;
+    color: $secondary;
+    font-size: 50px;
+
+    &:hover {
+      color: white;
+    }
+
+    &:active {
+      color: white;
+    }
+  }
 }

@@ -1,13 +1,34 @@
 body, html {
   min-height: 100%;
-  margin-top: 50px; }
+  margin-top: 50px;
+  background-color: #E6E0F0; }
 
 .tabbed-box {
   border-radius: 15px;
   display: flex;
   flex-direction: row;
-  display: grid;
-  grid-template-columns: 100px 100px 100px 1fr;
-  background-color: #E6E0F0; }
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-around;
+  max-width: 75%;
+  margin: 0 auto;
+  background-color: #50377F; }
+  .tabbed-box .all-tab {
+    border-right: 1px solid #fff;
+    width: 33%; }
+  .tabbed-box .online-tab {
+    border-right: 1px solid #fff;
+    width: 33%; }
+  .tabbed-box .offline-tab {
+    width: 33%; }
+  .tabbed-box button {
+    background-color: #50377F;
+    border-color: #50377F;
+    color: #C2B6D9;
+    font-size: 50px; }
+    .tabbed-box button:hover {
+      color: white; }
+    .tabbed-box button:active {
+      color: white; }
 
 /*# sourceMappingURL=twitch.css.map */

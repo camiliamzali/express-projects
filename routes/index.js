@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/twitch_api', function(req, res, next) {
-  res.render('twitch_api', { title: 'Twitch Api Example' });
+  res.render('twitch_api', { title: 'Twitch API Example' });
 });
 
 
