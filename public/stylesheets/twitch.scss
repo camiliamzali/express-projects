@@ -1,6 +1,9 @@
+
 $background: #E6E0F0;
 $primary: #50377F;
 $secondary: #C2B6D9;
+$tertiary: #735C9D;
+
 
 
 body, html {
@@ -9,36 +12,73 @@ body, html {
   background-color: $background;
 }
 
+.twitch-pic {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 40%;
+  max-height: 40%;
+}
+
+// .authenticate {
+//   display: flex;
+//   justify-content: flex-end;
+//   flex-wrap: nowrap;
+//   margin: auto 50px auto auto;
+//
+//   button {
+//     color: white;
+//     background-color: $primary;
+//   }
+// }
+
 .tabbed-box {
-  border-radius: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-grow: 1;
-  justify-content: space-around;
   max-width: 75%;
-  margin: 0 auto;
+  margin: 100px auto 0;
   background-color: $primary;
+  border-radius: 10px 10px 0px 0px;
+
 
   .all-tab {
     border-right: 1px solid #fff;
     width: 33%;
+    margin: 0;
+    border-radius: 10px 0px 0px 0px;
   }
 
   .online-tab {
     border-right: 1px solid #fff;
-    width: 33%
+    width: 33%;
+    margin: 0;
+    color:#F8FDD2;
+
   }
 
   .offline-tab {
-    width: 33%;
+    width: 34%;
+    margin: 0;
+    color:#AC7FB5;
+    border-radius: 0px 10px 0px 0px;
+  }
+
+  .center-btn {
+    border-radius: 0;
+  }
+
+  .active {
+    color: white;
+    background-color: $tertiary;
   }
 
   button {
     background-color: $primary;
-    border-color: $primary;
     color: $secondary;
     font-size: 50px;
+    cursor: pointer;
 
     &:hover {
       color: white;
@@ -46,6 +86,126 @@ body, html {
 
     &:active {
       color: white;
+      background-color: $tertiary;
+    }
+    &:focus {
+      color: white;
+      box-shadow: none;
+      background-color: $tertiary;
     }
   }
+}
+
+.input-text {
+  border: 0;
+  height: 48px;
+  width: 90%;
+
+  &:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+}
+
+.search-bar {
+  width: 70%;
+  background-color: white;
+  display: block;
+  margin: 0 auto;
+  padding-left: 10px;
+  border-radius: 10px;
+
+}
+
+.active-search {
+  box-shadow: 0 0 3pt 2pt $background;
+}
+
+.icon {
+  position: relative;
+  float: right;
+  padding-right: 15px;
+  padding-top: 12px;
+}
+
+.purple-space {
+  background-color: $tertiary;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 75%;
+  margin: auto;
+}
+
+
+.streamer-box {
+  background-color: $tertiary;
+  padding: 0;
+  margin: 0 auto 5% auto;
+  max-width: 75%;
+  overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .streamer-row {
+    display: grid;
+    grid-template-columns: 50px auto 125px;
+    grid-template-rows: 50px auto;
+
+    &.online {
+      order: 0;
+      cursor: pointer;
+    }
+    &.offline {
+      order: 1;
+    }
+    &.hidden {
+      display: none;
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+    }
+
+    .main-box {
+      color: $background;
+      font-size: 18px;
+      padding-left: 5%;
+      display: flex;
+      align-items: center;
+    }
+
+    .status-box {
+      font-size: 18px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:nth-child(2n) {
+      background-color: $tertiary;
+    }
+
+    &:nth-child(2n+1) {
+      background-color: $primary;
+    }
+  }
+}
+
+.livestream {
+  height: 500px;
+}
+
+.hidden {
+  display: none;
+}
+
+img.logo {
+  width: 75%;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 12.5%;
 }
