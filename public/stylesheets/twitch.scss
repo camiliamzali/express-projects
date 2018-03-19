@@ -3,13 +3,23 @@ $background: #E6E0F0;
 $primary: #50377F;
 $secondary: #C2B6D9;
 $tertiary: #735C9D;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xlg: 1200px;
 
+html {
+  max-width: 100%;
+}
 
-
-body, html {
-  min-height: 100%;
+body {
   margin-top: 50px;
   background-color: $background;
+}
+
+.content {
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 .twitch-pic {
@@ -42,6 +52,9 @@ body, html {
   background-color: $primary;
   border-radius: 10px 10px 0px 0px;
 
+  @media (max-width: $sm) {
+    font-size: 10px;
+  }
 
   .all-tab {
     border-right: 1px solid #fff;
@@ -107,7 +120,7 @@ body, html {
 }
 
 .search-bar {
-  width: 70%;
+  width: 80%;
   background-color: white;
   display: block;
   margin: 0 auto;
@@ -149,8 +162,8 @@ body, html {
 
   .streamer-row {
     display: grid;
-    grid-template-columns: 50px auto 125px;
-    grid-template-rows: 50px auto;
+    grid-template-columns: 95px auto 95px;
+    grid-template-rows: 55px auto;
 
     &.online {
       order: 0;
@@ -164,16 +177,20 @@ body, html {
     }
 
     .icon-box {
-      width: 50px;
-      height: 50px;
+      margin: 0 auto;
+      width: 55px;
+      height: 55px;
     }
 
     .main-box {
       color: $background;
       font-size: 18px;
-      padding-left: 5%;
       display: flex;
       align-items: center;
+
+      @media (max-width: $sm) {
+        font-size: 12px;
+      }
     }
 
     .status-box {
@@ -196,6 +213,11 @@ body, html {
 
 .livestream {
   height: 500px;
+
+}
+
+.twitch-box {
+  margin: 0 auto;
 }
 
 .hidden {

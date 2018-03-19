@@ -96,27 +96,30 @@ $(document).ready(function() {
     $('.streamer-box').on('click','.streamer-row.online', function() {
       //$(this).child.append()
       var idName = $(this).children('.livestream').children('.twitch-box')[0].dataset.id;
-      var embed = new Twitch.Embed(idName, {
-        width: 854,
-        height: 480,
-        channel: idName,
-        layout: "video",
-      });
+        let options = {
+		        width: "100%",
+		          height: 480,
+ 		           channel: idName,
+	            };
+      // var embed = new Twitch.Embed(idName, {
+      //   width: 854,
+      //   height: 480,
+      //   channel: idName,
+      //   layout: "video",
+      // });
       if ($(this).children('.livestream').hasClass('hidden')) {
           $('div.livestream').addClass('hidden');
           $(this).children('.livestream').removeClass('hidden');
-
-          embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-            var player = embed.getPlayer();
-            player.play();
-            console.log(embed);
-          });
+          $('iframe').remove();
+          let player = new Twitch.Player(idName, options);
+          // embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+          //   var player = embed.getPlayer();
+          //   player.setMuted(true);
+          //   console.log(embed);
+          // });
       } else {
-        embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-          var player = embed.getPlayer();
-          player.pause();
-          console.log(embed);
-        });
+        $('iframe').remove();
+        console.log('iframe removed');
         $(this).children('.livestream').addClass('hidden');
       };
     });
