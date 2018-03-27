@@ -40,25 +40,22 @@ $(document).ready(function() {
 
 
                     // Get function to pull logo from channel page in case offline
-
                     $.get(offlineurl, function(offlineinfo) {
                         var offlinelogo = offlineinfo.logo;
 
                         statustext = 'Offline';
 
-                        $('.streamer-box').append(`<div class="streamer-row offline"><div class="icon-box  offline"><img class="logo offline" src="${offlinelogo}"></div><div class="main-box  offline">${streamer} is offline.</div><div class="status-box  offline" style="color: #AC7FB5">${statustext}</div></div>`);
+                        $('.streamer-box').append(`<div class="streamer-row offline" data-streamer="${streamer}"><div class="icon-box offline"><img class="logo offline" src="${offlinelogo}"></div><div class="main-box offline">${streamer} is offline.</div><div class="status-box  offline" style="color: #AC7FB5">${statustext}</div><div></div><div class="livestream hidden"><div class="twitch-box" id="${streamer}" data-id="${streamer}"></div></div>`);
                     });
                 } else {
                     statustext = streaminfo.stream.game;
                     var logo = streaminfo.stream.channel.logo;
 
                     $('.streamer-box').append(`
-                    <div class="streamer-row online">
+                    <div class="streamer-row online" data-streamer="${streamer}">
                     <div class="icon-box online"><img class="logo online" src=" ${logo}"></div>
                     <div class="main-box  online">${streamer} is playing ${streaminfo.stream.game}.</div>
                     <div class="status-box  online" style="color:#F8FDD2">Online</div><div></div><div class="livestream hidden"><div class="twitch-box" id="${streamer}" data-id="${streamer}"></div></div><div></div>`);
-                    // $('<div class="livestream hidden"></div>').appendTo(`.streamer-row`);
-                //<div class="livestream-left"></div><div class="livestream"></div><div class="livestream-right"></div><div class="livestream-dummy"></div><div class="livestream-dummy"></div><div class="livestream-dummy"></div>
                }
             });
         });
@@ -93,30 +90,28 @@ $(document).ready(function() {
           $('.streamer-row.offline').removeClass('hidden');
         }
     });
+    $('#input').on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $('.streamer-row').addClass('hidden');
+      var found = $(".streamer-row").toArray().filter(function (el) {
+	       return $(el).data('streamer').toLowerCase().includes(value);
+      });
+      found.forEach(function(el) {
+        $(el).removeClass('hidden');
+      });
+    });
     $('.streamer-box').on('click','.streamer-row.online', function() {
-      //$(this).child.append()
       var idName = $(this).children('.livestream').children('.twitch-box')[0].dataset.id;
         let options = {
 		        width: "100%",
 		          height: 480,
  		           channel: idName,
 	            };
-      // var embed = new Twitch.Embed(idName, {
-      //   width: 854,
-      //   height: 480,
-      //   channel: idName,
-      //   layout: "video",
-      // });
       if ($(this).children('.livestream').hasClass('hidden')) {
           $('div.livestream').addClass('hidden');
           $(this).children('.livestream').removeClass('hidden');
           $('iframe').remove();
           let player = new Twitch.Player(idName, options);
-          // embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-          //   var player = embed.getPlayer();
-          //   player.setMuted(true);
-          //   console.log(embed);
-          // });
       } else {
         $('iframe').remove();
         console.log('iframe removed');
@@ -124,3 +119,4 @@ $(document).ready(function() {
       };
     });
 });
+// nothing to see here x2
