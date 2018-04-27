@@ -34,7 +34,7 @@ html {
       color: white;
       padding: 10px;
       text-decoration: none;
-      font-size: 4em;
+      font-size: 3em;
       line-height: 25px;
       text-shadow: 1px 1px #000000;
       opacity: 0.75; }
@@ -54,12 +54,11 @@ html {
     text-align: center;
     color: white;
     text-shadow: 1.5px 1.5px #000000;
-    font-size: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center; }
     .main .hero-text h1 {
-      font-size: 5rem;
+      font-size: 3rem;
       margin-bottom: 2em; }
     .main .hero-text h2 {
       font-size: 2.5rem; }
@@ -75,8 +74,9 @@ html {
   background-color: #ffe9e6;
   min-height: 100%;
   display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
   flex-direction: column;
-  justify-content: center;
   align-items: center; }
   .portfolio h1 {
     font-size: 5rem; }
@@ -100,7 +100,7 @@ html {
 
 .about-me {
   background-color: #fff7f6;
-  min-height: 100%;
+  min-height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,8 +123,9 @@ html {
         margin: 0 175px; } }
 
 .contact {
-  background-color: #fffcfb;
-  min-height: 30%;
+  background-color: #fff7f6;
+  min-height: 50%;
+  padding-bottom: 50px;
   text-align: center;
   display: flex;
   flex-direction: column;
